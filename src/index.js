@@ -21,12 +21,14 @@ const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-function onStartBtnClick() {
-    intervalId = setInterval(() => {
-    let valueArr = randomIntegerFromInterval(0, colors.length - 1);
+function setBodyColor() {
+  let valueArr = randomIntegerFromInterval(0, colors.length - 1);
     const randomBodyColor = colors[valueArr];
     document.body.style.backgroundColor = randomBodyColor;
-  }, 1000);
+}
+
+function onStartBtnClick() {
+    intervalId = setInterval(setBodyColor, 1000);
   refs.startBtn.setAttribute('disabled', true);
 }
 
